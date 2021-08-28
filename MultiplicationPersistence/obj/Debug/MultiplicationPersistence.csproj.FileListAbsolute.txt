@@ -1,0 +1,7 @@
+C:\Users\joelt\source\repos\MultiplicationPersistence\MultiplicationPersistence\bin\Debug\MultiplicationPersistence.exe.config
+C:\Users\joelt\source\repos\MultiplicationPersistence\MultiplicationPersistence\bin\Debug\MultiplicationPersistence.exe
+C:\Users\joelt\source\repos\MultiplicationPersistence\MultiplicationPersistence\bin\Debug\MultiplicationPersistence.pdb
+C:\Users\joelt\source\repos\MultiplicationPersistence\MultiplicationPersistence\obj\Debug\MultiplicationPersistence.csprojAssemblyReference.cache
+C:\Users\joelt\source\repos\MultiplicationPersistence\MultiplicationPersistence\obj\Debug\MultiplicationPersistence.csproj.CoreCompileInputs.cache
+C:\Users\joelt\source\repos\MultiplicationPersistence\MultiplicationPersistence\obj\Debug\MultiplicationPersistence.exe
+C:\Users\joelt\source\repos\MultiplicationPersistence\MultiplicationPersistence\obj\Debug\MultiplicationPersistence.pdb
