@@ -10,6 +10,8 @@ namespace MultiplicationPersistence
         {
             Stopwatch sw = new Stopwatch();
 
+            Console.Write("Enter starting point: ");
+            string sstart = Console.ReadLine().Trim();
             Console.Write("Please input the number of digits to search: ");
             string smax = Console.ReadLine().Trim();
             Console.WriteLine();
@@ -19,6 +21,8 @@ namespace MultiplicationPersistence
             long[] arr = new long[coreCount];
             Task[] tasks = new Task[coreCount];
             long.TryParse(smax, out long longmax);
+            long.TryParse(sstart, out long longstart);
+            longmax += longstart;
             long pos = 0;
             long maxsteps = 0;
             Console.WriteLine("Starting Stopwatch.");
@@ -26,8 +30,8 @@ namespace MultiplicationPersistence
             Console.WriteLine("Calculating " + longmax + " digits on " + coreCount + " threads. . .");
 
             long chunkStart;
-            long chunkEnd = 0;
-            long chunkSize = longmax / arr.Length;
+            long chunkEnd = longstart;
+            long chunkSize = (longmax - longstart) / arr.Length;
             for (long startIndex = 0; startIndex < coreCount; startIndex ++)
             {
                 long sindex = startIndex;
@@ -35,7 +39,7 @@ namespace MultiplicationPersistence
                 long cend;
                 //calculate start and end of chunk
                 chunkStart = chunkEnd;
-                chunkEnd = chunkSize * (startIndex + 1);
+                chunkEnd += chunkSize;
                 if (startIndex == coreCount - 1)
                     chunkEnd = longmax;
 
@@ -81,7 +85,7 @@ namespace MultiplicationPersistence
                 }
             }
             arr[index] = pos;
-            Console.WriteLine("Thread " + index + " completed.");
+            Console.WriteLine("Thread " + index + " completed and calculated " + pos);
         }
 
         static long Per(string n, bool output = false, int steps = 0)
@@ -91,6 +95,13 @@ namespace MultiplicationPersistence
                 if (output)
                     Console.WriteLine("DONE\n\n" + steps + " steps taken.");
                 return (long)steps;
+            }
+            if (steps == 0 
+                &&(n.Contains("0") 
+                    || n.Contains("5"))
+                )
+            {
+                return 0;
             }
 
             long result = 1;
